@@ -61,39 +61,62 @@ function App() {
   const result = format === "binary" ? convertToBinary(num) : convertToHex(num);
 
   return (
-    <>
-      <div>
-        <h1>Number Converter</h1>
-        <input
-          type="text"
-          placeholder="Enter a number"
-          onChange={({ target }) => setNum(target.value)}
-        />
-        <p>answer {result}</p>
-        <div>
-          <label>
+    <main className="app-shell">
+      <section className="converter-card" aria-labelledby="converter-title">
+        <p className="eyebrow">Quick conversion</p>
+        <h1 id="converter-title">Number converter</h1>
+        <p className="description">
+          Turn a decimal number into binary or hexadecimal.
+        </p>
+
+        <div className="number-field">
+          <label htmlFor="number-input">Decimal number</label>
+          <input
+            id="number-input"
+            type="number"
+            min="0"
+            step="1"
+            placeholder="e.g. 42"
+            onChange={({ target }) => setNum(target.value)}
+          />
+        </div>
+
+        <fieldset className="format-picker">
+          <legend>Convert to</legend>
+          <label className={`format-option${format === "binary" ? " selected" : ""}`}>
             <input
               type="radio"
               name="number-format"
               value="binary"
               checked={format === "binary"}
               onChange={({ target }) => setFormat(target.value)}
-            />{" "}
-            Binary
+            />
+            <span>
+              <strong>Binary</strong>
+              <small>Base 2</small>
+            </span>
           </label>
-          <label>
+          <label className={`format-option${format === "hex" ? " selected" : ""}`}>
             <input
               type="radio"
               name="number-format"
               value="hex"
               checked={format === "hex"}
               onChange={({ target }) => setFormat(target.value)}
-            />{" "}
-            Hexadecimal
+            />
+            <span>
+              <strong>Hexadecimal</strong>
+              <small>Base 16</small>
+            </span>
           </label>
+        </fieldset>
+
+        <div className="result-panel">
+          <span className="result-label">Result</span>
+          <output className="result-value" aria-live="polite">{result}</output>
         </div>
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
 
