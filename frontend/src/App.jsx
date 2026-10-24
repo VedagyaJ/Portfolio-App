@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import Converter from "./components/Converter";
+import Decipher from "./components/Decipher";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/converter" element={<Converter />} />
+          <Route path="/decipher" element={<Decipher />} />
         </Routes>
       </Router>
     </div>
