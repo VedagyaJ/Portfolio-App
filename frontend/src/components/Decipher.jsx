@@ -1,4 +1,7 @@
 import { useState } from "react";
+import words from "an-array-of-english-words";
+
+const dictionary = new Set(words);
 
 const Decipher = () => {
   const [inputText, setInputText] = useState("");
@@ -27,13 +30,29 @@ const Decipher = () => {
       const attempt = shifted.join("");
       results.push(attempt);
     }
-    console.log("Decipher attempts:", results);
 
     return results;
   };
 
   const decipherText = (text) => {
     const results = shiftLetters(text);
+
+    // Array of scores of each attempt
+    const scores = results.map((attempt) => {
+      // Array of words in attempt
+      const wordsInAttempt = attempt
+        .split(/\s+/)
+        .map((word) => word.toLowerCase());
+
+      // Count how many words are in the dictionary
+      const score = wordsInAttempt.reduce((count, word) => {
+        return dictionary.has(word) ? count + 1 : count;
+      }, 0);
+
+      return score;
+    });
+
+    return results[scores.indexOf(Math.max(...scores))];
   };
 
   return (
