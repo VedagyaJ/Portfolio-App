@@ -2,7 +2,8 @@
   min-height: 100svh;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 36px;
@@ -12,7 +13,7 @@
   text-align: center;
 }
 
-.converter-tile {
+.tool-tile {
   position: relative;
   display: flex;
   width: min(100%, 320px);
@@ -31,12 +32,12 @@
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
-.converter-tile:hover {
+.tool-tile:hover {
   transform: translate(-3px, -4px) rotate(-1deg);
   box-shadow: 10px 12px 0 #172440;
 }
 
-.converter-tile:focus-visible {
+.tool-tile:focus-visible {
   outline: 4px solid #fff;
   outline-offset: 6px;
 }
@@ -48,6 +49,10 @@
   place-items: center;
   border-radius: 22px;
   background: #ffdf72;
+}
+
+.decipher-art {
+  background: #b39aff;
 }
 
 .tile-art svg {
@@ -87,7 +92,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .converter-tile {
+  .tool-tile {
     transition: none;
   }
 }
