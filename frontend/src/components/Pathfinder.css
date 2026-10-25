@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(25, 24px);
+  width: fit-content;
+  border: 2px solid #333;
+}
+
+.cell {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ddd;
+  box-sizing: border-box
+}
+
+.start {
+  background: #2ecc71;
+}
+
+.end {
+  background: #e74c3c;
+}
+.wall {
+  background: #000000;
+}

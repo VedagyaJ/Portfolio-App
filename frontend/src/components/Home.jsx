@@ -75,7 +75,14 @@ const Home = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <rect x="51" y="121" width="78" height="20" rx="10" fill="#9fe870" />
+            <rect
+              x="51"
+              y="121"
+              width="78"
+              height="20"
+              rx="10"
+              fill="#9fe870"
+            />
             <text
               x="90"
               y="136"
