@@ -1,0 +1,131 @@
+.decipher-shell {
+  flex: 1;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 32px 20px;
+  background: #98b9f2;
+  color: #172440;
+}
+
+.decipher-card {
+  width: min(100%, 560px);
+  box-sizing: border-box;
+  padding: 40px;
+  border: 1px solid rgba(23, 36, 64, 0.08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 64px rgba(26, 49, 92, 0.18);
+}
+
+.decipher-eyebrow {
+  margin: 0 0 12px;
+  color: #526d9f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.decipher-card h1 {
+  margin: 0;
+  color: #172440;
+  font-size: clamp(2rem, 7vw, 2.5rem);
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.decipher-description {
+  margin: 12px 0 32px;
+  color: #6b7890;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.decipher-field label {
+  display: block;
+  margin-bottom: 10px;
+  color: #293954;
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.decipher-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 140px;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1px solid #dce3ef;
+  border-radius: 12px;
+  outline: none;
+  background: #f8faff;
+  color: #172440;
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.decipher-field textarea::placeholder {
+  color: #8b96a9;
+}
+
+.decipher-field textarea:focus {
+  border-color: #527bd0;
+  box-shadow: 0 0 0 3px rgba(82, 123, 208, 0.16);
+}
+
+.decipher-result {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: #172440;
+}
+
+.decipher-result-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.decipher-result-label {
+  color: #aab9d2;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.decipher-method {
+  color: #aab9d2;
+  font-size: 0.75rem;
+}
+
+.decipher-result-value {
+  overflow-wrap: anywhere;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 480px) {
+  .decipher-card {
+    padding: 30px 22px;
+    border-radius: 20px;
+  }
+
+  .decipher-result {
+    padding: 15px;
+  }
+}

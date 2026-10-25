@@ -1,5 +1,6 @@
 import { useState } from "react";
 import words from "an-array-of-english-words";
+import "./Decipher.css";
 
 const dictionary = new Set(words);
 
@@ -52,20 +53,43 @@ const Decipher = () => {
       return score;
     });
 
+    // Return the attempt with the highest score
     return results[scores.indexOf(Math.max(...scores))];
   };
 
   return (
-    <div>
-      <h1>Decipher Component</h1>
-      <input
-        type="text"
-        value={inputText}
-        onChange={({ target }) => setInputText(target.value)}
-        placeholder="Enter text to decipher"
-      />
-      answer {decipherText([...inputText])}
-    </div>
+    <main className="decipher-shell">
+      <section className="decipher-card" aria-labelledby="decipher-title">
+        <p className="decipher-eyebrow">Message decoder</p>
+        <h1 id="decipher-title">Caesar cipher solver</h1>
+        <p className="decipher-description">
+          Paste an encoded message and find the most likely plaintext.
+        </p>
+
+        <div className="decipher-field">
+          <label htmlFor="cipher-input">Encoded message</label>
+          <textarea
+            id="cipher-input"
+            value={inputText}
+            onChange={({ target }) => setInputText(target.value)}
+            placeholder="Type or paste your message here..."
+            rows="5"
+          />
+        </div>
+
+        <div className="decipher-result">
+          <div className="decipher-result-heading">
+            <span className="decipher-result-label">Decoded message</span>
+            <span className="decipher-method">Automatic shift detection</span>
+          </div>
+          <output className="decipher-result-value" aria-live="polite">
+            {inputText
+              ? decipherText([...inputText])
+              : "Your decoded message will appear here."}
+          </output>
+        </div>
+      </section>
+    </main>
   );
 };
 
