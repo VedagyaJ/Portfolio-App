@@ -9,7 +9,7 @@
   width: 24px;
   height: 24px;
   border: 1px solid #ddd;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .start {
@@ -19,6 +19,11 @@
 .end {
   background: #e74c3c;
 }
+
 .wall {
   background: #000000;
+}
+
+.path {
+  background: #f1c40f;
 }
