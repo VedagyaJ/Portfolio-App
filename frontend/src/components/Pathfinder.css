@@ -1,29 +1,205 @@
-.grid {
+.pathfinder-shell {
+  flex: 1;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 32px 20px;
+  background: #98b9f2;
+  color: #172440;
+}
+
+.pathfinder-card {
+  width: min(100%, 790px);
+  box-sizing: border-box;
+  padding: 32px;
+  border: 1px solid rgba(23, 36, 64, 0.08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 64px rgba(26, 49, 92, 0.18);
+}
+
+.pathfinder-eyebrow {
+  margin: 0 0 10px;
+  color: #526d9f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pathfinder-card h1 {
+  margin: 0;
+  color: #172440;
+  font-size: clamp(2rem, 7vw, 2.5rem);
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.pathfinder-description {
+  margin: 12px 0 24px;
+  color: #6b7890;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.pathfinder-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  margin-bottom: 16px;
+}
+
+.pathfinder-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #526078;
+  font-size: 0.8rem;
+}
+
+.pathfinder-legend i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(23, 36, 64, 0.12);
+  border-radius: 3px;
+}
+
+.legend-start {
+  background: #55c98b;
+}
+
+.legend-end {
+  background: #f27878;
+}
+
+.legend-wall {
+  background: #263650;
+}
+
+.legend-path {
+  background: #f4c84e;
+}
+
+.pathfinder-board {
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid #dce3ef;
+  border-radius: 14px;
+  background: #f8faff;
+  scrollbar-color: #aab9d2 #f8faff;
+}
+
+.pathfinder-grid {
   display: grid;
   grid-template-columns: repeat(25, 24px);
   width: fit-content;
-  border: 2px solid #333;
+  border: 1px solid #dce3ef;
+  background: #fff;
+  user-select: none;
 }
 
-.cell {
+.pathfinder-grid .cell {
   width: 24px;
   height: 24px;
-  border: 1px solid #ddd;
   box-sizing: border-box;
+  border: 1px solid #e8edf5;
+  background: #fff;
+  transition: background-color 100ms ease;
 }
 
-.start {
-  background: #2ecc71;
+.pathfinder-grid .cell:not(.start):not(.end):not(.wall):not(.path):hover {
+  background: #edf3ff;
 }
 
-.end {
-  background: #e74c3c;
+.pathfinder-grid .start {
+  background: #55c98b;
 }
 
-.wall {
-  background: #000000;
+.pathfinder-grid .end {
+  background: #f27878;
 }
 
-.path {
-  background: #f1c40f;
+.pathfinder-grid .wall {
+  background: #263650;
+}
+
+.pathfinder-grid .wall:hover {
+  background: #263650;
+}
+
+.pathfinder-grid .path {
+  background: #f4c84e;
+}
+
+.pathfinder-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.pathfinder-button {
+  min-width: 120px;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.pathfinder-button:hover {
+  transform: translateY(-1px);
+}
+
+.pathfinder-button:focus-visible {
+  outline: 3px solid rgba(82, 123, 208, 0.4);
+  outline-offset: 3px;
+}
+
+.pathfinder-button-primary {
+  background: #172440;
+  color: #fff;
+}
+
+.pathfinder-button-primary:hover {
+  background: #293d62;
+}
+
+.pathfinder-button-secondary {
+  border-color: #dce3ef;
+  background: #fff;
+  color: #293954;
+}
+
+.pathfinder-button-secondary:hover {
+  background: #f2f6ff;
+}
+
+@media (max-width: 480px) {
+  .pathfinder-card {
+    padding: 28px 18px;
+    border-radius: 20px;
+  }
+
+  .pathfinder-board {
+    padding: 8px;
+  }
+
+  .pathfinder-legend {
+    gap: 8px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pathfinder-grid .cell,
+  .pathfinder-button {
+    transition: none;
+  }
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Pathfinder.css";
-import { findPath } from "./findPath.js"
+import { findPath } from "./findPath.js";
 
 const SIZE = 25;
 
@@ -10,7 +10,7 @@ const Pathfinder = () => {
   const [end, setEnd] = useState(null);
   const [walls, setWalls] = useState([]);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [path, setPath] = useState([])
+  const [path, setPath] = useState([]);
 
   const addWall = (key) => {
     if (key === start || key === end) return;
@@ -64,21 +64,56 @@ const Pathfinder = () => {
   }
 
   return (
-    <div>
-      <h1>Pathfinder</h1>
-      <div
-        className="grid"
-        onMouseUp={() => {
-          setIsDrawing(false);
-        }}
-        onMouseLeave={() => {
-          setIsDrawing(false);
-        }}
-      >
-        {cells}
-      </div>
-      <button onClick={() => setPath(findPath(start, end, walls))}>Start</button>
-    </div>
+    <main className="pathfinder-shell">
+      <section className="pathfinder-card" aria-labelledby="pathfinder-title">
+        <p className="pathfinder-eyebrow">Explore a route</p>
+        <h1 id="pathfinder-title">Pathfinder</h1>
+        <p className="pathfinder-description">
+          Choose a start and end point, then draw walls to shape the path.
+        </p>
+
+        <div className="pathfinder-legend" aria-label="Grid key">
+          <span><i className="legend-start" />Start</span>
+          <span><i className="legend-end" />End</span>
+          <span><i className="legend-wall" />Wall</span>
+          <span><i className="legend-path" />Path</span>
+        </div>
+
+        <div className="pathfinder-board">
+          <div
+            className="pathfinder-grid"
+            onMouseUp={() => {
+              setIsDrawing(false);
+            }}
+            onMouseLeave={() => {
+              setIsDrawing(false);
+            }}
+          >
+            {cells}
+          </div>
+        </div>
+
+        <div className="pathfinder-actions">
+          <button
+            className="pathfinder-button pathfinder-button-primary"
+            onClick={() => setPath(findPath(start, end, walls))}
+          >
+            Start
+          </button>
+          <button
+            className="pathfinder-button pathfinder-button-secondary"
+            onClick={() => {
+              setStart(null);
+              setEnd(null);
+              setWalls([]);
+              setPath([]);
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      </section>
+    </main>
   );
 };
 

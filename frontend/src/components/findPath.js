@@ -29,7 +29,6 @@ export const findPath = (start, end, walls) => {
         latestCell = cameFrom.get(latestCell);
       }
 
-      console.log(path)
       return path.reverse().slice(1);
     }
 
@@ -50,5 +49,5 @@ export const findPath = (start, end, walls) => {
     }
   }
 
-  return null;
+  return [];
 };
