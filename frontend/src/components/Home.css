@@ -55,6 +55,10 @@
   background: #b39aff;
 }
 
+.pathfinder-art {
+  background: #a8d7ff;
+}
+
 .tile-art svg {
   display: block;
   width: 180px;

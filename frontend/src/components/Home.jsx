@@ -106,6 +106,40 @@ const Home = () => {
           ↗
         </span>
       </Link>
+      <Link className="tool-tile" to="/pathfinder">
+        <span className="tile-art pathfinder-art" aria-hidden="true">
+          <svg viewBox="0 0 180 180" role="presentation">
+            <rect x="22" y="22" width="136" height="136" rx="22" fill="#fff" />
+            <path
+              d="M52 42v96m32-96v96m32-96v96M42 52h96M42 84h96m-96 32h96"
+              fill="none"
+              stroke="#dce3ef"
+              strokeWidth="4"
+            />
+            <path
+              d="M52 116h32V84h32V52"
+              fill="none"
+              stroke="#f4c84e"
+              strokeWidth="9"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <rect x="42" y="106" width="20" height="20" rx="5" fill="#55c98b" />
+            <rect x="106" y="42" width="20" height="20" rx="5" fill="#f27878" />
+            <rect x="74" y="42" width="20" height="20" rx="5" fill="#263650" />
+            <rect x="106" y="106" width="20" height="20" rx="5" fill="#263650" />
+          </svg>
+        </span>
+        <span className="tile-copy">
+          <span className="tile-title">Pathfinder</span>
+          <span className="tile-description">
+            Find a route around the walls
+          </span>
+        </span>
+        <span className="tile-arrow" aria-hidden="true">
+          ↗
+        </span>
+      </Link>
     </main>
   );
 };
