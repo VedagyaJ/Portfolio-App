@@ -1,0 +1,91 @@
+.logic-gates {
+  max-width: 420px;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fffefb;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.logic-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.logic-gates label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.logic-gates button,
+.logic-gates select {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logic-gates button {
+  min-width: 2.5rem;
+  padding: 0.4rem 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logic-gates button:hover,
+.logic-gates select:hover {
+  border-color: #a78bfa;
+}
+
+.logic-gates select {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.95rem;
+}
+
+.logic-output {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  font-weight: 700;
+}
+
+.logic-table-wrap {
+  overflow-x: auto;
+}
+
+.logic-gates table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.logic-gates th,
+.logic-gates td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.logic-gates th {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+tr.current {
+  background: #fff3b0;
+  font-weight: bold;
+}
