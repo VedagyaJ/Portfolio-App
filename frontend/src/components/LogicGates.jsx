@@ -27,6 +27,13 @@ const findOutput = (operator, x, y) => {
 };
 
 const LogicGates = () => {
+  const [components, setComponents] = useState([
+    { id: 1, type: "INPUT", row: 2, col: 1, value: false },
+    { id: 2, type: "AND", row: 3, col: 4 },
+  ]);
+
+  const cells = [];
+
   const [gate1, setGate] = useState("AND");
   const [gate2, setGate2] = useState("AND");
   const [a, setA] = useState(false);
@@ -34,6 +41,27 @@ const LogicGates = () => {
   const [c, setC] = useState(false);
 
   const output = findOutput(gate1, a, b);
+
+  // Create grid
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 12; c++) {
+      // Check if a component is in the cell
+      const component = components.find(
+        (comp) => comp.row === r && comp.col === c,
+      );
+
+      cells.push(
+        <div key={`${r},${c}`} className={component ? "cell": "cell empty"}>
+          {/* Add component if it exists */}
+          {component && (
+            <div className={`component ${component.type.toLocaleLowerCase()}`}>
+              {component.type}
+            </div>
+          )}
+        </div>,
+      );
+    }
+  }
 
   // Possible inputs
   const combos =
@@ -103,6 +131,7 @@ const LogicGates = () => {
           </tbody>
         </table>
       </div>
+      <div className="circuit-grid">{cells}</div>
     </div>
   );
 };

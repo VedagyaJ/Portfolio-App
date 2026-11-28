@@ -1,4 +1,4 @@
-.logic-gates {
+/* .logic-gates {
   max-width: 420px;
   margin: 1rem auto;
   padding: 1rem;
@@ -88,4 +88,42 @@
 tr.current {
   background: #fff3b0;
   font-weight: bold;
+} */
+
+.circuit-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 70px);
+  grid-auto-rows: 70px;
+  width: fit-content;
+  border: 2px solid #333;
+}
+
+.cell {
+  border: 1px dashed #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell.empty:hover {
+  background: #5c82bd;
+  cursor: pointer;
+}
+
+.component {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  background: #dfe6fd;
+  border: 2px solid #4a6cf7;
+}
+
+.component.input {
+  background: #e6f7ea;
+  border-color: #2ecc71;
 }
